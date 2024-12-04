@@ -7,18 +7,18 @@ class Solution {
                 j++;
             else {
                 ans.append(arr[i]);
-                if ((j - i) > 1) {
-                    ans.append(j - i);
-                }
+                int len = j - i;
+                if (len > 1)
+                    ans.append(len);
                 i = j;
             }
         }
         ans.append(arr[i]);
-        if ((j - i) > 1) {
-            ans.append(j - i);
-        }
-        for (int k = 0; k < ans.length(); k++) {
-            arr[k] = ans.charAt(k);
+        int len = j - i;
+        if (len > 1)
+            ans.append(len);
+        for (i = 0; i < ans.length(); i++) {
+            arr[i] = ans.charAt(i);
         }
         return ans.length();
     }
