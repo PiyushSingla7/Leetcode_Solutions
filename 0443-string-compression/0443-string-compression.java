@@ -17,9 +17,8 @@ class Solution {
         if ((j - i) > 1) {
             ans += (j - i);
         }
-        char[] arr2 = ans.toCharArray();
-        for (int k = 0; k < arr2.length; k++) {
-            arr[k] = arr2[k];
+        for (int k = 0; k < ans.length(); k++) {
+            arr[k] = ans.charAt(k);
         }
         return ans.length();
     }
