@@ -1,21 +1,21 @@
 class Solution {
     public int compress(char[] arr) {
-        String ans = "";
+        StringBuilder ans = new StringBuilder("");
         int i = 0, j = 0;
         while (j < arr.length) {
             if (arr[j] == arr[i])
                 j++;
             else {
-                ans += arr[i];
+                ans.append(arr[i]);
                 if ((j - i) > 1) {
-                    ans += (j - i);
+                    ans.append(j - i);
                 }
                 i = j;
             }
         }
-        ans += arr[i];
+        ans.append(arr[i]);
         if ((j - i) > 1) {
-            ans += (j - i);
+            ans.append(j - i);
         }
         for (int k = 0; k < ans.length(); k++) {
             arr[k] = ans.charAt(k);
