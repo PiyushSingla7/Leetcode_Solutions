@@ -12,7 +12,6 @@ class Solution {
             perm.remove(perm.size() - 1);
         }
     }
-
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         backtrac(result, new ArrayList<>(), nums);
