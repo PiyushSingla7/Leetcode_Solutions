@@ -1,30 +1,35 @@
 class Solution {
-    public List<Integer> spiralOrder(int[][] grid) {
-        int rows = grid.length;
-        int cols = grid[0].length;
-        List<Integer> result = new ArrayList<>();
-        int minr = 0, minc = 0, maxr = rows - 1, maxc = cols - 1;
-        while (minr <= maxr && minc <= maxc) {
-            for (int j = minc; j <= maxc; j++) {
-                result.add(grid[minr][j]);
+    public List<Integer> spiralOrder(int[][] matrix) {
+        ArrayList<Integer> result = new ArrayList<>();
+        int minr = 0, minc = 0, maxr = matrix.length - 1, maxc = matrix[0].length - 1;
+        while (minc <= maxc && minr <= maxr) {
+            // left
+            for (int i = minc; i <= maxc; i++) {
+                result.add(matrix[minr][i]);
             }
             minr++;
-            if ((minr > maxr || minc > maxc))
+
+            // down
+            if (minr > maxr || minc > maxc)
                 break;
-            for (int j = minr; j <= maxr; j++) {
-                result.add(grid[j][maxc]);
+            for (int i = minr; i <= maxr; i++) {
+                result.add(matrix[i][maxc]);
             }
             maxc--;
-            if ((minr > maxr || minc > maxc))
+
+            // right
+            if (minr > maxr || minc > maxc)
                 break;
-            for (int j = maxc; j >= minc; j--) {
-                result.add(grid[maxr][j]);
+            for (int i = maxc; i >= minc; i--) {
+                result.add(matrix[maxr][i]);
             }
             maxr--;
-            if ((minr > maxr || minc > maxc))
+
+            // up
+            if (minr > maxr || minc > maxc)
                 break;
-            for (int j = maxr; j >= minr; j--) {
-                result.add(grid[j][minc]);
+            for (int i = maxr; i >= minr; i--) {
+                result.add(matrix[i][minc]);
             }
             minc++;
         }
