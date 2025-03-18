@@ -1,18 +1,20 @@
 class Solution {
-    public void rotatepart(int[] nums, int i, int j) {
-        while (i < j) {
-            int temp = nums[i];
-            nums[i++] = nums[j];
-            nums[j--] = temp;
+    public void r(int start, int end, int[] arr) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
+        return;
     }
 
     public void rotate(int[] nums, int k) {
-        if (nums.length <= 1)
-            return;
-        k %= nums.length;
-        rotatepart(nums, 0, nums.length - k - 1);
-        rotatepart(nums, nums.length - k, nums.length - 1);
-        rotatepart(nums, 0, nums.length - 1);
+        int n = nums.length;
+        k %= n;
+        r(n - k, n - 1, nums);
+        r(0, n - k - 1, nums);
+        r(0, n - 1, nums);
     }
 }
