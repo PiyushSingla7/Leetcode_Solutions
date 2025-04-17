@@ -1,9 +1,9 @@
 class Solution {
-    public void rotatepart(int[] nums, int i, int j) {
-        while (i < j) {
-            int temp = nums[i];
-            nums[i++] = nums[j];
-            nums[j--] = temp;
+    public void rotatepart(int[] nums, int start, int end) {
+        while (start < end) {
+            int temp = nums[start];
+            nums[start++] = nums[end];
+            nums[end--] = temp;
         }
     }
 
