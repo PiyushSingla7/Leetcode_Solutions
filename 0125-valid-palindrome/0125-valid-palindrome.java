@@ -1,12 +1,20 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        StringBuilder str = new StringBuilder();
-        s = s.toLowerCase();
-        for (int i = 0; i < s.length(); i++) {
-            if (((int) s.charAt(i)) >= 97 && ((int) s.charAt(i)) <= 122) {
-                str.append(s.charAt(i));
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            char l = s.charAt(left);
+            char r = s.charAt(right);
+            if (!Character.isLetterOrDigit(l))
+                left++;
+            else if (!Character.isLetterOrDigit(r))
+                right--;
+            else {
+                if (Character.toLowerCase(l) != Character.toLowerCase(r))
+                    return false;
+                left++;
+                right--;
             }
         }
-        return str.toString().toLowerCase().equals(str.reverse().toString().toLowerCase());
+        return true;
     }
 }
